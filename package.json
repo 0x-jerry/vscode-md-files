@@ -1,0 +1,199 @@
+{
+  "name": "vscode-md-sidebar",
+  "displayName": "Markdown Sidebar",
+  "description": "VSCode extension for markdown files",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": {
+    "name": "Jerry wang",
+    "email": "x.jerry.wang@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/0x-jerry/vscode-hexo-utils/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0x-jerry/vscode-hexo-utils.git"
+  },
+  "publisher": "fantasy",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "markdown"
+  ],
+  "icon": "resources/hexo.png",
+  "activationEvents": [
+    "onView:markdown-sidebar"
+  ],
+  "main": "./dist/extension.js",
+  "extensionKind": [
+    "ui",
+    "workspace"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "Markdown Sidebar",
+      "properties": {
+        "markdown.sidebar.scan": {
+          "type": "array",
+          "description": "Scan configuration",
+          "default": [
+            {
+              "dir": "/",
+              "include": "**/*.{md,mdx}",
+              "exclude": "**/node_modules/**"
+            }
+          ],
+          "items": {
+            "type": "object",
+            "properties": {
+              "dir": {
+                "type": "string",
+                "description": "Relative path to current workspace"
+              },
+              "includes": {
+                "type": "string",
+                "description": "Glob pattern",
+                "default": "**/*.{md,mdx}"
+              },
+              "excludes": {
+                "type": "string",
+                "description": "Glob pattern",
+                "default": "**/node_modules/**"
+              }
+            },
+            "required": [
+              "dir"
+            ]
+          }
+        },
+        "markdown.sidebar.meta": {
+          "type": "object",
+          "description": "Parse markdown metadata",
+          "additionalProperties": {
+            "type": "string",
+            "enum": [
+              "string",
+              "number",
+              "boolean",
+              "date"
+            ]
+          }
+        },
+        "markdown.sidebar.tag": {
+          "type": "object",
+          "description": "Tag meta configuration",
+          "default": {
+            "metaName": "tags"
+          },
+          "properties": {
+            "metaName": {
+              "type": "string"
+            }
+          }
+        },
+        "markdown.sidebar.category": {
+          "type": "object",
+          "description": "Category meta configuration",
+          "default": {
+            "metaName": "categories"
+          },
+          "properties": {
+            "metaName": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "markdown.sidebar.command.refresh",
+        "title": "Refresh Markdown Container"
+      },
+      {
+        "command": "markdown.sidebar.command.delete",
+        "title": "Delete File"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "markdown-sidebar",
+          "title": "Markdown Utils",
+          "icon": "resources/hexo-activitybar.svg"
+        }
+      ]
+    },
+    "views": {
+      "markdown-sidebar": [
+        {
+          "id": "markdown.sidebar.container.files",
+          "name": "files",
+          "scope": "resource"
+        },
+        {
+          "id": "markdown.sidebar.container.categories",
+          "name": "categories"
+        },
+        {
+          "id": "markdown.sidebar.container.tags",
+          "name": "tags"
+        }
+      ]
+    },
+    "menus": {
+      "commandPalette": [],
+      "view/title": [
+        {
+          "command": "markdown.sidebar.command.refresh",
+          "group": "navigation",
+          "when": "view =~ /markdown\\.sidebar\\.(files|tags|categories)/"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "markdown.sidebar.command.delete",
+          "when": "view =~ /markdown\\.sidebar\\.(files|tags|categories)/"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "tsup src/extension.ts --sourcemap",
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "publish": "vsce publish --no-dependencies",
+    "release": "x-release"
+  },
+  "tsup": {
+    "entry": [
+      "src/extension.ts"
+    ],
+    "sourcemap": true,
+    "clean": true,
+    "external": [
+      "vscode"
+    ]
+  },
+  "devDependencies": {
+    "@0x-jerry/utils": "^2.4.0",
+    "@0x-jerry/x-release": "^2.2.2",
+    "@types/debug": "^4.1.12",
+    "@types/node": "^20.14.9",
+    "@types/vscode": "^1.90.0",
+    "@types/yamljs": "^0.2.34",
+    "@vscode/vsce": "^2.29.0",
+    "axios": "^1.7.2",
+    "dayjs": "^1.11.11",
+    "debug": "^4.3.5",
+    "tsup": "^8.1.0",
+    "typescript": "^5.5.3",
+    "ufo": "^1.5.3",
+    "yamljs": "^0.3.0"
+  }
+}

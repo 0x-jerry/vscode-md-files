@@ -1,0 +1,1 @@
+export { registerTreeViews } from './common';

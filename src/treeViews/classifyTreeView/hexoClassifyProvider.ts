@@ -1,7 +1,7 @@
 import path from 'path';
 import { isHexoProject, getMDFiles, getMDFileMetadata } from '../../utils';
 import { Commands } from '../../commands/common';
-import { HexoMetadataUtils, IHexoMetadata } from '../../hexoMetadata';
+import { HexoMetadataUtils, IHexoMetadata } from '../../metadata';
 import { getConfig, ConfigProperties, configs } from '../../configs';
 
 import {

@@ -1,6 +1,6 @@
 {
-  "name": "md-files",
-  "displayName": "Markdown Files",
+  "name": "vscode-md-sidebar",
+  "displayName": "Markdown Sidebar",
   "description": "VSCode extension for markdown files",
   "version": "0.0.1",
   "license": "MIT",
@@ -17,17 +17,17 @@
   },
   "publisher": "fantasy",
   "engines": {
-    "vscode": "^1.67.0"
+    "vscode": "^1.90.0"
   },
   "categories": [
     "Other"
   ],
   "keywords": [
-    "hexo"
+    "markdown"
   ],
   "icon": "resources/hexo.png",
   "activationEvents": [
-    "workspaceContains:**/_config.yml"
+    "*"
   ],
   "main": "./dist/extension.js",
   "extensionKind": [
@@ -343,23 +343,7 @@
           "group": "hexo@2"
         }
       ]
-    },
-    "grammars": [
-      {
-        "scopeName": "text.hexo",
-        "path": "./syntaxes/markdown.hexo.tmLanguage.json",
-        "injectTo": [
-          "text.html.markdown"
-        ]
-      }
-    ],
-    "snippets": [
-      {
-        "language": "markdown",
-        "path": "./snippets/snippets.hexo.json"
-      }
-    ],
-    "markdown.markdownItPlugins": true
+    }
   },
   "scripts": {
     "vscode:prepublish": "tsup src/extension.ts --sourcemap",
@@ -378,31 +362,18 @@
       "vscode"
     ]
   },
-  "peerDependencies": {
-    "@types/vscode": "*"
-  },
   "devDependencies": {
-    "@0x-jerry/x-release": "^1.0.0",
-    "@types/debounce": "^1.2.4",
+    "@0x-jerry/x-release": "^2.2.2",
     "@types/debug": "^4.1.12",
-    "@types/markdown-it": "^14.0.1",
-    "@types/mustache": "^4.2.5",
-    "@types/node": "^20.12.3",
-    "@types/vscode": "^1.67.0",
+    "@types/node": "^20.14.9",
+    "@types/vscode": "^1.90.0",
     "@types/yamljs": "^0.2.34",
-    "@vscode/vsce": "^2.24.0",
-    "axios": "^1.6.8",
-    "conventional-changelog-cli": "^4.1.0",
-    "cos-nodejs-sdk-v5": "^2.13.4",
-    "dayjs": "^1.11.10",
-    "debounce": "^2.0.0",
-    "debug": "^4.3.4",
-    "form-data": "^4.0.0",
-    "hexo-cli": "^4.3.1",
-    "markdown-it": "^14.1.0",
-    "mustache": "^4.2.0",
-    "tsup": "^8.0.2",
-    "typescript": "^5.4.3",
+    "@vscode/vsce": "^2.29.0",
+    "axios": "^1.7.2",
+    "dayjs": "^1.11.11",
+    "debug": "^4.3.5",
+    "tsup": "^8.1.0",
+    "typescript": "^5.5.3",
     "yamljs": "^0.3.0"
   }
 }

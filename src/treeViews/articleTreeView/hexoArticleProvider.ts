@@ -15,7 +15,7 @@ import { Commands } from '../../commands/common';
 import { ArticleTypes } from '../../commands/createArticle';
 import { isHexoProject, getMDFiles, getMDFileMetadata } from '../../utils';
 import { configs, getConfig, ConfigProperties, SortBy } from '../../configs';
-import { IHexoMetadata } from '../../hexoMetadata';
+import { IHexoMetadata } from '../../metadata';
 import { BaseDispose } from '../common';
 import { MoveFile } from '../../commands';
 import { mineTypePrefix } from './const';

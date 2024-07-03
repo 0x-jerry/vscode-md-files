@@ -1,7 +1,7 @@
 import path from 'path';
 import yamljs from 'yamljs';
 import { Uri, window, workspace } from 'vscode';
-import type { IHexoMetadata } from '../hexoMetadata';
+import type { IHexoMetadata } from '../metadata';
 
 export async function isHexoProject() {
   // no need to check dependency.

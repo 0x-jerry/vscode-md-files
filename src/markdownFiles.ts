@@ -1,4 +1,4 @@
-import { RelativePattern, workspace, type ExtensionContext, type Uri } from 'vscode';
+import { RelativePattern, workspace, type Uri } from 'vscode';
 import { BaseDisposable } from './disposable';
 import { parseMetadata, type IMetadata } from './metadata';
 import { debugInfo } from './utils';
@@ -13,10 +13,10 @@ export class MarkdownFiles extends BaseDisposable {
   #files: IMarkdownFile[] = [];
 
   get files(): IMarkdownFile[] {
-    return this.files;
+    return this.#files;
   }
 
-  constructor(readonly ctx: ExtensionContext) {
+  constructor() {
     super();
 
     this._initFileWatcher();
@@ -29,8 +29,8 @@ export class MarkdownFiles extends BaseDisposable {
       const pattern = new RelativePattern(scanConf.dir, scanConf.include || '**/*.{md,mdx}');
       const watcher = workspace.createFileSystemWatcher(pattern);
 
-      watcher.onDidChange((uri) => this._updatByeUri(uri));
-      watcher.onDidCreate((uri) => this._updatByeUri(uri));
+      watcher.onDidChange((uri) => this._updateByeUri(uri));
+      watcher.onDidCreate((uri) => this._updateByeUri(uri));
 
       watcher.onDidDelete((uri) => this._removeByUri(uri));
 
@@ -46,7 +46,7 @@ export class MarkdownFiles extends BaseDisposable {
     }
   }
 
-  async _updatByeUri(uri: Uri) {
+  async _updateByeUri(uri: Uri) {
     const content = (await workspace.fs.readFile(uri)).toString();
 
     const meta = parseMetadata(content);
@@ -63,7 +63,7 @@ export class MarkdownFiles extends BaseDisposable {
       });
     }
 
-    debugInfo('file scaned:', uri);
+    debugInfo('file scanned:', uri);
   }
 
   async _removeByUri(uri: Uri) {
@@ -83,7 +83,7 @@ export class MarkdownFiles extends BaseDisposable {
     );
 
     for (const file of mdFiles) {
-      await this._updatByeUri(file);
+      await this._updateByeUri(file);
     }
   }
 }

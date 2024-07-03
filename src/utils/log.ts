@@ -10,7 +10,8 @@ export function warnAlert(str: string, ...items: string[]) {
 }
 
 export function errorAlert(str: string, ...items: string[]) {
+  debugInfo('error: ', str, ...items);
   return window.showErrorMessage(str, ...items);
 }
 
-export const debugInfo = debug('md-files');
+export const debugInfo = debug('vscode-md-files:info');

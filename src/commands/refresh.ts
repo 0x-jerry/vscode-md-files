@@ -1,4 +1,4 @@
-import { extGlobals } from '../extGlobals';
+import { DI } from '../depInjection';
 import { Command, CommandId, command, type ICommandParsed } from './common';
 
 @command()
@@ -8,6 +8,6 @@ export class RefreshCommand extends Command {
   }
 
   async execute(parsedCommand: ICommandParsed, ...arg: any[]): Promise<any> {
-    await extGlobals.markdownFiles!.scan();
+    await DI.markdownFiles!.scan();
   }
 }

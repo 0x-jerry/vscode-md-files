@@ -3,9 +3,10 @@ import { treeView, ViewId } from '../common';
 import { ClassifyTreeView } from './ClassifyTreeView';
 import { ClassifyItem, ClassifyProvider } from './ClassifyProvider';
 import { CategoryIcon, TagIcon } from '../../icons';
-import { extGlobals } from '../../extGlobals';
-import ufo from 'ufo';
+import { DI, DIType } from '../../depInjection';
+import * as ufo from 'ufo';
 import type { IMarkdownFile } from '../../markdownFiles';
+import { debugInfo } from '../../utils';
 
 @treeView()
 export class TagsTreeView extends ClassifyTreeView {
@@ -33,9 +34,13 @@ function createGetChildrenBuilder(ctx: ExtensionContext, labelType: 'tags' | 'ca
   const getLabels = (item: IMarkdownFile) => item.meta[labelType];
   const isTag = labelType === 'tags';
 
-  return function getChildren(item: ClassifyItem) {
+  return function getChildren(item: ClassifyItem): ClassifyItem[] {
+    const mdFiles = DI.get(DIType.MDFiles);
+
+    debugInfo('get files', item);
+
     if (!item) {
-      const allLabels = extGlobals.markdownFiles?.files.map((item) => getLabels(item)).flat();
+      const allLabels = mdFiles.files.map((item) => getLabels(item)).flat();
       const labels = [...new Set(allLabels)];
 
       return labels.map(
@@ -53,13 +58,14 @@ function createGetChildrenBuilder(ctx: ExtensionContext, labelType: 'tags' | 'ca
 
     const label = item.label as string;
 
-    const items = extGlobals.markdownFiles?.files
+    const items = mdFiles.files
       .filter((item) => getLabels(item).includes(label))
       .map(
         (file) =>
           new ClassifyItem({
             label: ufo.parseFilename(file.uri.path, { strict: false })!,
             uri: file.uri,
+            parent: item,
           }),
       );
 

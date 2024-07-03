@@ -1,15 +1,19 @@
 import { type ExtensionContext } from 'vscode';
 import { registerCommands } from './commands';
 import { registerTreeViews } from './treeViews';
-import { errorAlert } from './utils';
-import { extGlobals } from './extGlobals';
+import { debugInfo, errorAlert } from './utils';
+import { DI, DIType } from './depInjection';
 import { MarkdownFiles } from './markdownFiles';
 
 export function activate(context: ExtensionContext) {
-  // Todo, use dep-injection instead of.
-  extGlobals.markdownFiles = new MarkdownFiles(context);
-  extGlobals.markdownFiles.scan()
-  extGlobals.context = context;
+  debugInfo('activate');
+
+  DI.bind(DIType.Extension, context);
+  DI.bind(DIType.MDFiles, MarkdownFiles);
+
+  const mdFiles = DI.get(DIType.MDFiles);
+
+  mdFiles.scan();
 
   try {
     registerTreeViews(context);
@@ -20,6 +24,6 @@ export function activate(context: ExtensionContext) {
 }
 
 export function deactivate() {
-  extGlobals.markdownFiles = null;
-  extGlobals.context = null;
+  DI.clear();
+  debugInfo('deactivate');
 }

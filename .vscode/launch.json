@@ -18,8 +18,7 @@
       "outFiles": ["${workspaceFolder}/dist/**/*.js"],
       "preLaunchTask": "npm: dev",
       "env": {
-        "DEBUG": "vscode-hexo-utils:*",
-        "NODE_ENV": "development"
+        "DEBUG": "vscode-md-files:*"
       }
     }
   ]

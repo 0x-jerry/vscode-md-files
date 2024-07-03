@@ -1,6 +1,7 @@
 import { extGlobals } from '../extGlobals';
-import { Command, CommandId, type ICommandParsed } from './common';
+import { Command, CommandId, command, type ICommandParsed } from './common';
 
+@command()
 export class RefreshCommand extends Command {
   constructor() {
     super(CommandId.Refresh);

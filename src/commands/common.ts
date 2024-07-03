@@ -1,4 +1,4 @@
-import { type ExtensionContext, commands } from 'vscode';
+import { type ExtensionContext, commands, Disposable } from 'vscode';
 import { BaseDisposable } from '../disposable';
 
 const CommandPrefix = 'markdown.sidebar.command.';
@@ -61,16 +61,20 @@ export abstract class Command extends BaseDisposable {
   }
 }
 
-const registedCommands: any[] = [];
+interface CommandClass {
+  new (): Disposable;
+}
 
-export function command(): ClassDecorator {
-  return (target: any) => {
-    registedCommands.push(target);
+const registeredCommands: CommandClass[] = [];
+
+export function command() {
+  return <T extends CommandClass>(target: T, _ctx: ClassDecoratorContext<T>) => {
+    registeredCommands.push(target);
   };
 }
 
 export function registerCommands(context: ExtensionContext): void {
-  for (const CommandCtor of registedCommands) {
+  for (const CommandCtor of registeredCommands) {
     context.subscriptions.push(new CommandCtor());
   }
 }

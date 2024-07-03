@@ -4,10 +4,11 @@ import {
   type TreeViewOptions,
   type TreeView,
   window,
+  Disposable,
 } from 'vscode';
 import { BaseDisposable } from '../disposable';
 
-const registedTreeViews: any[] = [];
+const registeredTreeViews: TreeViewClass[] = [];
 
 const ViewIdPrefix = 'markdown.sidebar.container.';
 
@@ -31,14 +32,18 @@ export abstract class BaseTreeView<T> extends BaseDisposable {
   }
 }
 
-export function treeView(): ClassDecorator {
-  return (target: any) => {
-    registedTreeViews.push(target);
+interface TreeViewClass {
+  new (ctx: ExtensionContext): Disposable;
+}
+
+export function treeView() {
+  return <T extends TreeViewClass>(target: T, _ctx: ClassDecoratorContext<T>) => {
+    registeredTreeViews.push(target);
   };
 }
 
 export function registerTreeViews(context: ExtensionContext) {
-  for (const TreeViewCtor of registedTreeViews) {
+  for (const TreeViewCtor of registeredTreeViews) {
     context.subscriptions.push(new TreeViewCtor(context));
   }
 }

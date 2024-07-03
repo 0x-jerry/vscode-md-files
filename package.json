@@ -1,7 +1,7 @@
 {
-  "name": "vscode-hexo-utils",
-  "displayName": "Hexo Utils",
-  "description": "vscode extension for hexo",
+  "name": "md-files",
+  "displayName": "Markdown Files",
+  "description": "VSCode extension for markdown files",
   "version": "0.4.1",
   "license": "MIT",
   "author": {

@@ -2,7 +2,7 @@
   "name": "md-files",
   "displayName": "Markdown Files",
   "description": "VSCode extension for markdown files",
-  "version": "0.4.1",
+  "version": "0.0.1",
   "license": "MIT",
   "author": {
     "name": "Jerry wang",

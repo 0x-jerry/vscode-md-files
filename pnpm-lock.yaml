@@ -4,54 +4,49 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-importers:
-
-  .:
-    devDependencies:
-      '@0x-jerry/utils':
-        specifier: ^2.4.1
-        version: 2.4.1
-      '@0x-jerry/x-release':
-        specifier: ^2.2.2
-        version: 2.2.2
-      '@types/debug':
-        specifier: ^4.1.12
-        version: 4.1.12
-      '@types/node':
-        specifier: ^20.14.9
-        version: 20.14.9
-      '@types/vscode':
-        specifier: ^1.90.0
-        version: 1.90.0
-      '@types/yamljs':
-        specifier: ^0.2.34
-        version: 0.2.34
-      '@vscode/vsce':
-        specifier: ^2.29.0
-        version: 2.29.0
-      axios:
-        specifier: ^1.7.2
-        version: 1.7.2(debug@4.3.5)
-      dayjs:
-        specifier: ^1.11.11
-        version: 1.11.11
-      debug:
-        specifier: ^4.3.5
-        version: 4.3.5
-      tsup:
-        specifier: ^8.1.0
-        version: 8.1.0(typescript@5.5.3)
-      typescript:
-        specifier: ^5.5.3
-        version: 5.5.3
-      ufo:
-        specifier: ^1.5.3
-        version: 1.5.3
-      yamljs:
-        specifier: ^0.3.0
-        version: 0.3.0
-
-  example: {}
+devDependencies:
+  '@0x-jerry/utils':
+    specifier: ^3.0.0
+    version: 3.0.0
+  '@0x-jerry/x-release':
+    specifier: ^2.2.2
+    version: 2.2.2
+  '@types/debug':
+    specifier: ^4.1.12
+    version: 4.1.12
+  '@types/node':
+    specifier: ^20.14.9
+    version: 20.14.9
+  '@types/vscode':
+    specifier: ^1.90.0
+    version: 1.90.0
+  '@types/yamljs':
+    specifier: ^0.2.34
+    version: 0.2.34
+  '@vscode/vsce':
+    specifier: ^2.29.0
+    version: 2.29.0
+  axios:
+    specifier: ^1.7.2
+    version: 1.7.2(debug@4.3.5)
+  dayjs:
+    specifier: ^1.11.11
+    version: 1.11.11
+  debug:
+    specifier: ^4.3.5
+    version: 4.3.5
+  tsup:
+    specifier: ^8.1.0
+    version: 8.1.0(typescript@5.5.3)
+  typescript:
+    specifier: ^5.5.3
+    version: 5.5.3
+  ufo:
+    specifier: ^1.5.3
+    version: 1.5.3
+  yamljs:
+    specifier: ^0.3.0
+    version: 0.3.0
 
 packages:
 
@@ -61,6 +56,14 @@ packages:
 
   /@0x-jerry/utils@2.4.1:
     resolution: {integrity: sha512-uQ5BhXfRarzNOyPf7sjuwqxRe5izUgChEvRVrwVpzX7xg2X7BXGEld0tR/de4OdcmBXJrW1EQmDrkmduw694UQ==}
+    dependencies:
+      fflate: 0.8.2
+      nanoid: 5.0.7
+      picocolors: 1.0.1
+    dev: true
+
+  /@0x-jerry/utils@3.0.0:
+    resolution: {integrity: sha512-a0b38xFszEj2+O2wv96LWl2MyRLmApOzIb8NxZRFWtC0SWXzQcfkXxNs06RfMo5MAxFXyxSQWUtw0tLIdnobiw==}
     dependencies:
       fflate: 0.8.2
       nanoid: 5.0.7

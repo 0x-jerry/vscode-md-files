@@ -4,54 +4,49 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-importers:
-
-  .:
-    devDependencies:
-      '@0x-jerry/utils':
-        specifier: ^2.4.1
-        version: 2.4.1
-      '@0x-jerry/x-release':
-        specifier: ^2.2.2
-        version: 2.2.2
-      '@types/debug':
-        specifier: ^4.1.12
-        version: 4.1.12
-      '@types/node':
-        specifier: ^20.14.9
-        version: 20.14.9
-      '@types/vscode':
-        specifier: ^1.90.0
-        version: 1.90.0
-      '@types/yamljs':
-        specifier: ^0.2.34
-        version: 0.2.34
-      '@vscode/vsce':
-        specifier: ^2.29.0
-        version: 2.29.0
-      axios:
-        specifier: ^1.7.2
-        version: 1.7.2(debug@4.3.5)
-      dayjs:
-        specifier: ^1.11.11
-        version: 1.11.11
-      debug:
-        specifier: ^4.3.5
-        version: 4.3.5
-      tsup:
-        specifier: ^8.1.0
-        version: 8.1.0(typescript@5.5.3)
-      typescript:
-        specifier: ^5.5.3
-        version: 5.5.3
-      ufo:
-        specifier: ^1.5.3
-        version: 1.5.3
-      yamljs:
-        specifier: ^0.3.0
-        version: 0.3.0
-
-  example: {}
+devDependencies:
+  '@0x-jerry/utils':
+    specifier: ^2.4.1
+    version: 2.4.1
+  '@0x-jerry/x-release':
+    specifier: ^2.2.2
+    version: 2.2.2
+  '@types/debug':
+    specifier: ^4.1.12
+    version: 4.1.12
+  '@types/node':
+    specifier: ^20.14.9
+    version: 20.14.9
+  '@types/vscode':
+    specifier: ^1.90.0
+    version: 1.90.0
+  '@types/yamljs':
+    specifier: ^0.2.34
+    version: 0.2.34
+  '@vscode/vsce':
+    specifier: ^3.0.0
+    version: 3.0.0
+  axios:
+    specifier: ^1.7.2
+    version: 1.7.2(debug@4.3.5)
+  dayjs:
+    specifier: ^1.11.11
+    version: 1.11.11
+  debug:
+    specifier: ^4.3.5
+    version: 4.3.5
+  tsup:
+    specifier: ^8.1.0
+    version: 8.1.0(typescript@5.5.3)
+  typescript:
+    specifier: ^5.5.3
+    version: 5.5.3
+  ufo:
+    specifier: ^1.5.3
+    version: 1.5.3
+  yamljs:
+    specifier: ^0.3.0
+    version: 0.3.0
 
 packages:
 
@@ -942,9 +937,9 @@ packages:
       '@vscode/vsce-sign-win32-x64': 2.0.2
     dev: true
 
-  /@vscode/vsce@2.29.0:
-    resolution: {integrity: sha512-63+aEO8SpjE6qKiIh2Cqy/P9zC7+USElGwpEdkyPp89xIBDBr5IqeNS3zkD3mp3wZqbvHIpJsCCNu74WQirYCg==}
-    engines: {node: '>= 16'}
+  /@vscode/vsce@3.0.0:
+    resolution: {integrity: sha512-UKYcC7fcSw6AUK6nlfm8A8WSOA41H3DRAwafCMp9CQpg3K9COAQKkrgQ+dKPhwkFTP7SPZNEiulDpPLwvr5QQQ==}
+    engines: {node: '>= 20'}
     hasBin: true
     dependencies:
       '@azure/identity': 4.3.0
@@ -955,7 +950,7 @@ packages:
       cockatiel: 3.1.3
       commander: 6.2.1
       form-data: 4.0.0
-      glob: 7.2.3
+      glob: 11.0.0
       hosted-git-info: 4.1.0
       jsonc-parser: 3.3.1
       leven: 3.1.0
@@ -1670,6 +1665,19 @@ packages:
       path-scurry: 1.11.1
     dev: true
 
+  /glob@11.0.0:
+    resolution: {integrity: sha512-9UiX/Bl6J2yaBbxKoEBRm4Cipxgok8kQYcOPEhScPwebu2I0HoQOuYdIO6S3hLuWoZgpDpwQZMzTFxgpkyT76g==}
+    engines: {node: 20 || >=22}
+    hasBin: true
+    dependencies:
+      foreground-child: 3.2.1
+      jackspeak: 4.0.1
+      minimatch: 10.0.1
+      minipass: 7.1.2
+      package-json-from-dist: 1.0.0
+      path-scurry: 2.0.0
+    dev: true
+
   /glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
     deprecated: Glob versions prior to v9 are no longer supported
@@ -1872,6 +1880,15 @@ packages:
       '@pkgjs/parseargs': 0.11.0
     dev: true
 
+  /jackspeak@4.0.1:
+    resolution: {integrity: sha512-cub8rahkh0Q/bw1+GxP7aeSe29hHHn2V4m29nnDlvCdlgU+3UGxkZp7Z53jLUdpX3jdTO0nJZUDl3xvbWc2Xog==}
+    engines: {node: 20 || >=22}
+    dependencies:
+      '@isaacs/cliui': 8.0.2
+    optionalDependencies:
+      '@pkgjs/parseargs': 0.11.0
+    dev: true
+
   /jiti@1.21.6:
     resolution: {integrity: sha512-2yTgeWTWzMWkHu6Jp9NKgePDaYHbntiwvYuuJLbbN9vl7DC9DvXKOB2BC3ZZ92D3cvV/aflH0osDfwpHepQ53w==}
     hasBin: true
@@ -2008,6 +2025,11 @@ packages:
     engines: {node: 14 || >=16.14}
     dev: true
 
+  /lru-cache@11.0.0:
+    resolution: {integrity: sha512-Qv32eSV1RSCfhY3fpPE2GNZ8jgM9X7rdAfemLWqTUxwiyIC4jJ6Sy0fZ8H+oLWevO6i4/bizg7c8d8i6bxrzbA==}
+    engines: {node: 20 || >=22}
+    dev: true
+
   /lru-cache@6.0.0:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
@@ -2076,6 +2098,13 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /minimatch@10.0.1:
+    resolution: {integrity: sha512-ethXTt3SGGR+95gudmqJ1eNhRO7eGEGIgYA9vnPatK4/etz2MEVDno5GMCibdMTuBMyElzIlgxMna3K94XDIDQ==}
+    engines: {node: 20 || >=22}
+    dependencies:
+      brace-expansion: 2.0.1
+    dev: true
 
   /minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
@@ -2251,6 +2280,14 @@ packages:
     engines: {node: '>=16 || 14 >=14.18'}
     dependencies:
       lru-cache: 10.3.0
+      minipass: 7.1.2
+    dev: true
+
+  /path-scurry@2.0.0:
+    resolution: {integrity: sha512-ypGJsmGtdXUOeM5u93TyeIEfEhM6s+ljAhrk5vAvSx8uyY/02OvrZnA0YNGUrPXfpJMgI1ODd3nwz8Npx4O4cg==}
+    engines: {node: 20 || >=22}
+    dependencies:
+      lru-cache: 11.0.0
       minipass: 7.1.2
     dev: true
 

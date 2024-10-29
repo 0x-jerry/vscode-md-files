@@ -4,54 +4,49 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-importers:
-
-  .:
-    devDependencies:
-      '@0x-jerry/utils':
-        specifier: ^2.4.1
-        version: 2.4.1
-      '@0x-jerry/x-release':
-        specifier: ^2.2.2
-        version: 2.2.2
-      '@types/debug':
-        specifier: ^4.1.12
-        version: 4.1.12
-      '@types/node':
-        specifier: ^20.14.9
-        version: 20.14.9
-      '@types/vscode':
-        specifier: ^1.90.0
-        version: 1.90.0
-      '@types/yamljs':
-        specifier: ^0.2.34
-        version: 0.2.34
-      '@vscode/vsce':
-        specifier: ^2.29.0
-        version: 2.29.0
-      axios:
-        specifier: ^1.7.2
-        version: 1.7.2(debug@4.3.5)
-      dayjs:
-        specifier: ^1.11.11
-        version: 1.11.11
-      debug:
-        specifier: ^4.3.5
-        version: 4.3.5
-      tsup:
-        specifier: ^8.1.0
-        version: 8.1.0(typescript@5.5.3)
-      typescript:
-        specifier: ^5.5.3
-        version: 5.5.3
-      ufo:
-        specifier: ^1.5.3
-        version: 1.5.3
-      yamljs:
-        specifier: ^0.3.0
-        version: 0.3.0
-
-  example: {}
+devDependencies:
+  '@0x-jerry/utils':
+    specifier: ^2.4.1
+    version: 2.4.1
+  '@0x-jerry/x-release':
+    specifier: ^2.2.2
+    version: 2.2.2
+  '@types/debug':
+    specifier: ^4.1.12
+    version: 4.1.12
+  '@types/node':
+    specifier: ^22.0.0
+    version: 22.8.4
+  '@types/vscode':
+    specifier: ^1.90.0
+    version: 1.90.0
+  '@types/yamljs':
+    specifier: ^0.2.34
+    version: 0.2.34
+  '@vscode/vsce':
+    specifier: ^2.29.0
+    version: 2.29.0
+  axios:
+    specifier: ^1.7.2
+    version: 1.7.2(debug@4.3.5)
+  dayjs:
+    specifier: ^1.11.11
+    version: 1.11.11
+  debug:
+    specifier: ^4.3.5
+    version: 4.3.5
+  tsup:
+    specifier: ^8.1.0
+    version: 8.1.0(typescript@5.5.3)
+  typescript:
+    specifier: ^5.5.3
+    version: 5.5.3
+  ufo:
+    specifier: ^1.5.3
+    version: 1.5.3
+  yamljs:
+    specifier: ^0.3.0
+    version: 0.3.0
 
 packages:
 
@@ -841,10 +836,10 @@ packages:
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
     dev: true
 
-  /@types/node@20.14.9:
-    resolution: {integrity: sha512-06OCtnTXtWOZBJlRApleWndH4JsRVs1pDCc8dLSQp+7PpUpX3ePdHyeNSFTeSe7FtKyQkrlPvHwJOW3SLd8Oyg==}
+  /@types/node@22.8.4:
+    resolution: {integrity: sha512-SpNNxkftTJOPk0oN+y2bIqurEXHTA2AOZ3EJDDKeJ5VzkvvORSvmQXGQarcOzWV1ac7DCaPBEdMDxBsM+d8jWw==}
     dependencies:
-      undici-types: 5.26.5
+      undici-types: 6.19.8
     dev: true
 
   /@types/vscode@1.90.0:
@@ -2790,8 +2785,8 @@ packages:
     resolution: {integrity: sha512-+A5Sja4HP1M08MaXya7p5LvjuM7K6q/2EaC0+iovj/wOcMsTzMvDFbasi/oSapiwOlt252IqsKqPjCl7huKS0A==}
     dev: true
 
-  /undici-types@5.26.5:
-    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+  /undici-types@6.19.8:
+    resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
     dev: true
 
   /url-join@4.0.1:

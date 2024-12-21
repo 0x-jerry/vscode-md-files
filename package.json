@@ -181,7 +181,7 @@
     ]
   },
   "devDependencies": {
-    "@0x-jerry/utils": "^2.4.1",
+    "@0x-jerry/utils": "^4.0.0",
     "@0x-jerry/x-release": "^2.2.2",
     "@types/debug": "^4.1.12",
     "@types/node": "^20.14.9",

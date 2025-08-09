@@ -184,7 +184,7 @@
     "@0x-jerry/utils": "^2.4.1",
     "@0x-jerry/x-release": "^2.2.2",
     "@types/debug": "^4.1.12",
-    "@types/node": "^20.14.9",
+    "@types/node": "^22.0.0",
     "@types/vscode": "^1.90.0",
     "@types/yamljs": "^0.2.34",
     "@vscode/vsce": "^2.29.0",

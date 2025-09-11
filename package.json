@@ -188,10 +188,10 @@
     "@types/vscode": "^1.90.0",
     "@types/yamljs": "^0.2.34",
     "@vscode/vsce": "^2.29.0",
-    "axios": "^1.7.2",
+    "axios": "^1.8.2",
     "dayjs": "^1.11.11",
     "debug": "^4.3.5",
-    "tsup": "^8.1.0",
+    "tsup": "^8.3.5",
     "typescript": "^5.5.3",
     "ufo": "^1.5.3",
     "yamljs": "^0.3.0"
